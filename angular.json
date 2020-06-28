@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularcmp"
+    }
+  },
+  "defaultProject": "angularcmp",
+  "cli": {
+    "analytics": "3c0f3457-ce23-49da-98ad-bd3a99eac2b4"
+  }
 }

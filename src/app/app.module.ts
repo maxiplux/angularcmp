@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './componets/layout/layout.component';
 import { LoginComponent } from './componets/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SweetAlert2Module.forRoot(),
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule
   ],

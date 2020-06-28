@@ -19,13 +19,13 @@
                   </div>
                   <form class="user"  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" formControlName="email"  aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                      <input type="email" class="form-control form-control-user" formControlName="username"  aria-describedby="emailHelp" placeholder="Enter Email Address...">
                       <small class="form-text text-muted"
-                             *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+                             *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required">
                         Please enter email address.!
                       </small>
                       <small class="form-text text-muted"
-                             *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+                             *ngIf="loginForm.controls.username?.touched && loginForm.controls.username.errors?.email">
                         Email address not well formed.!
                       </small>
 
