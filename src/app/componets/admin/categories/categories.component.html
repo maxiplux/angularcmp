@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-4">
+
+   <app-category-form [category]="categoryObject"  ></app-category-form>
+
+
+  </div>
+  <div class="col-8">
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr *ngFor="let category of categories._embedded.category">
+              <td >{{ category.id }}</td>
+              <td (click)="selectCategory(category)">{{ category.name  }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
