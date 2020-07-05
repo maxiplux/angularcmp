@@ -23,7 +23,7 @@
             </thead>
             <tbody>
 
-            <tr *ngFor="let category of categories._embedded.category">
+            <tr *ngFor="let category of categories">
               <td >{{ category.id }}</td>
               <td (click)="selectCategory(category)">{{ category.name  }}</td>
             </tr>

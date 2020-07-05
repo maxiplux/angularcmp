@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://obscure-lowlands-76090.herokuapp.com'
+  baseUrl: 'https://obscure-lowlands-76090.herokuapp.com',
+  clientId: 'flutter-app',
+  Password: 'L4gzz8ECBrdmzP8CpgGeSVa9'
 };
 
 /* https://angularcmp.netlify.app/

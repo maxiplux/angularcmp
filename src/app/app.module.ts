@@ -19,6 +19,11 @@ import { OrdersComponent } from './componets/admin/orders/orders.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryFormComponent } from './componets/admin/categories/category-form/category-form.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {TokenInterceptorService} from './services/token-interceptor.service';
+
+import * as LogRocket from 'logrocket';
+LogRocket.init('ri2cmp/angularcmp');
 
 @NgModule({
   declarations: [
@@ -44,7 +49,14 @@ import { CategoryFormComponent } from './componets/admin/categories/category-for
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

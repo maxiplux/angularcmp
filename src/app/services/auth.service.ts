@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {User} from '../componets/models/user';
 import {environment} from '../../environments/environment';
-
-
+import decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,8 @@ export class AuthService {
   private _usuario: User;
   private _token: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   public get usuario(): User {
     if (this._usuario != null) {
@@ -38,7 +38,7 @@ export class AuthService {
   login(usuario: User): Observable<any> {
     const urlEndpoint = environment.baseUrl + '/oauth/token';
 
-    const credenciales = btoa('flutter-app' + ':' + 'L4gzz8ECBrdmzP8CpgGeSVa9');
+    const credenciales = btoa(environment.clientId + ':' + environment.Password);
 
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,7 +50,7 @@ export class AuthService {
     params.set('username', usuario.username);
     params.set('password', usuario.password);
     console.log(params.toString());
-    return this.http.post<any>(urlEndpoint, params.toString(), { headers: httpHeaders });
+    return this.http.post<any>(urlEndpoint, params.toString(), {headers: httpHeaders});
   }
 
   guardarUsuario(accessToken: string): void {
